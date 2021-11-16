@@ -31,6 +31,23 @@ jobs:
       run: |
         go mod download
         go run main.go
+        go test -v -run ^TestRemoteEnv$ broken1126
+/mogu/test
 
+
+
+        go test -v -run ^TestRemoteTime$ broken1126
+/mogu/test
+
+
+
+        go test -count=1 -v -run ^TestWeek$ broken1126
+/mogu/test
+
+
+
+
+        go test -count=1 -v -run ^TestWeekDiary$ broken1126
+/mogu/test
 
 
