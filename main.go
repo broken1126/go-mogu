@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"broken1126/mogu/service"
-	"broken1126/mogu/utils"
+	"towelong/mogu/service"
+	"towelong/mogu/utils"
 
 	"github.com/joho/godotenv"
 )
