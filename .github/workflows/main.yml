@@ -1,0 +1,38 @@
+
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  build:
+    env:
+      ACCOUNT: ${{ secrets.ACCOUNT }}
+      PASSWORD: ${{ secrets.PASSWORD }}
+      KEY: ${{ secrets.KEY }}
+      ADDRESS: ${{ secrets.ADDRESS }}
+      CITY: ${{ secrets.CITY }}
+      PROVINCE: ${{ secrets.PROVINCE }}
+      LONGITUDE: ${{ secrets.LONGITUDE }}
+      LATITUDE: ${{ secrets.LATITUDE }}
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: 1.15
+
+    - name: Test Unit
+      run: |
+        go mod download
+        go run main.go
+        go test -v -run ^TestRemoteEnv$ broken1126/mogu/test
+        go test -v -run ^TestRemoteTime$ broken1126/mogu/test
+        go test -count=1 -v -run ^TestWeek$ broken1126/mogu/test
+        go test -count=1 -v -run ^TestWeekDiary$ broken1126/mogu/test
