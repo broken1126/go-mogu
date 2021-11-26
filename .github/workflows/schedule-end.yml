@@ -2,7 +2,7 @@ name: schedule-end
 
 on:
   schedule:
-    - cron: "0 30 20 ? * MON-FRI"
+    - cron: "0 8 * * ? " 
 
 jobs:
   build:
