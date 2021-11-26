@@ -2,7 +2,7 @@ name: schedule-start
 
 on:
   schedule:
-    - cron: "30 13 * * ? " 
+    - cron: "0 8 * * ? " 
 
 jobs:
   build:
